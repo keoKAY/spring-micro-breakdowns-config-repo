@@ -3,6 +3,11 @@ spring:
       name: product-service
 server:
   port: 8383
+  config: 
+    import: vault://
+  datasource: 
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
 eureka:
   client:
     service-url:
