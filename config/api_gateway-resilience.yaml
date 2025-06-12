@@ -1,11 +1,12 @@
 spring:
     cloud:
         gateway:
-          httpclient: 
-             connect-timeout: 5000 # 5 seconds
-             response-timeout: 10s 
+          
           server:
               webflux:
+                httpclient: 
+                  connect-timeout: 5000 # 5 seconds
+                  response-timeout: 10s 
                 routes:
                   - id: product-service
                     uri: lb://product-service
