@@ -161,4 +161,21 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
 
- 
+# for the actuator endpoints 
+management: 
+  endpoints: 
+    web: 
+      exposure: 
+        include: health, info, metrics, circuitbreakers, retries, time-limiters, bulkheads 
+  endpoint:
+    health:
+      show-details: always
+      roles: [ADMIN, USER]
+    circuitbreakers:
+      enabled: true
+    retries:
+      enabled: true
+    time-limiters:
+      enabled: true
+    bulkheads:
+      enabled: true
