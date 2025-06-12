@@ -1,6 +1,14 @@
 spring:
     cloud:
         gateway:
+
+        # enable the cors configuration 
+          globalcors: 
+            cors-configurations: 
+              '[/**]': 
+                allowedOrigins: "*"
+                allowedMethods: "*" 
+                allowedHeaders: "*"
           server:
               webflux:
                 routes:
