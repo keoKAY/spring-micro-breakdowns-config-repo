@@ -65,12 +65,12 @@ spring:
                       #- StripPrefix=2 # remove /api/users from path
                       #- StripPrefix=0
                       - RewritePath=/users/(?<segment>.*), /api/v1/users/$\{segment}
-                default-filters:
-                  - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-                  - name: GlobalFilter
-                    args:
-                      pre-logger-enabled: true
-                      post-logger-enabled: true
+                # default-filters:
+                #   - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+                #   - name: GlobalFilter
+                #     args:
+                #       pre-logger-enabled: true
+                #       post-logger-enabled: true
     application:
       name: api-gateway
 server:
