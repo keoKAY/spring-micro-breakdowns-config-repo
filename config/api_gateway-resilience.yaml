@@ -13,7 +13,7 @@ spring:
                       # update the circuit breakers config
                       - name: CircuitBreaker
                         args:
-                            name: product-cb
+                            name: product-service-cb
                             fallbackUri: forward:/fallback/products
                       - name: Retry
                         args:
@@ -114,7 +114,7 @@ resilience4j:
         sliding-window-size: 8
   retry:
     instances:
-      user-service:
+      user-service-cb:
           max-attempts: 3
           wait-duration: 1s
           exponential-backoff-multiplier: 2
@@ -124,7 +124,7 @@ resilience4j:
             - java.net.SocketTimeoutException
           ignore-exceptions:
             - java.security.InvalidParameterException
-      product-service:
+      product-service-cb:
           max-attempts: 2
           wait-duration: 2s
           exponential-backoff-multiplier: 1.5
@@ -140,19 +140,18 @@ resilience4j:
         cancel-running-future: true
   bulkhead:
     instances:
-      user-service:
+      user-service-cb:
         max-concurrent-calls: 10
         max-wait-duration: 100ms
-      product-service:
+      product-service-cb:
         max-concurrent-calls: 15
         max-wait-duration: 200ms
-# logging configuration 
+# logging configuration
 logging:
   level:
-    org.springframework.cloud.gateway: DEBUG 
+    org.springframework.cloud.gateway: DEBUG
     org.springframework.web.reactive: DEBUG
-    reactor.netty: DEBUG 
-    io.github.resilience4j: DEBUG 
+    reactor.netty: DEBUG
+    io.github.resilience4j: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
-    
