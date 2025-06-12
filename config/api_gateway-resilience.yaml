@@ -15,10 +15,10 @@ spring:
                     filters:
                       # - StripPrefix=0
                       # update the circuit breakers config
-                      # - name: CircuitBreaker
-                      #   args:
-                      #       name: product-service-cb
-                      #       fallbackUri: forward:/fallback/products
+                      - name: CircuitBreaker
+                        args:
+                            name: product-service-cb
+                            fallbackUri: forward:/fallback/products
                       # - name: Retry
                       #   args:
                       #       retries: 2
