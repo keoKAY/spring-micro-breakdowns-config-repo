@@ -11,10 +11,10 @@ spring:
                     filters:
                       # - StripPrefix=0
                       # update the circuit breakers config
-                      - name: CircuitBreaker
-                        args:
-                            name: product-service-cb
-                            fallbackUri: forward:/fallback/products
+                      # - name: CircuitBreaker
+                      #   args:
+                      #       name: product-service-cb
+                      #       fallbackUri: forward:/fallback/products
                       - name: Retry
                         args:
                             retries: 2
@@ -39,10 +39,10 @@ spring:
                       # because I want to override the path
                       - Path=/users/**
                     filters:
-                      - name: CircuitBreaker
-                        args:
-                            name: user-service-cb
-                            fallback-uri: forward:/fallback/users
+                      # - name: CircuitBreaker
+                      #   args:
+                      #       name: user-service-cb
+                      #       fallback-uri: forward:/fallback/users
                       # Retry filters
                       - name: Retry
                         args:
@@ -105,6 +105,7 @@ resilience4j:
             - org.springframework.web.client.ResourceAccessException
           ignore-exceptions:
             - java.security.InvalidParameterException
+          permitted-number-of-calls-in-half-open-state: 3
       product-service-cb:
         failure-rate-threshold: 60
         minimum-number-of-calls: 3
