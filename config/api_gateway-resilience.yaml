@@ -85,9 +85,9 @@ eureka:
       defaultZone: http://eureka-service:8761/eureka
     register-with-eureka: true
     fetch-registry: true
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
+  # instance:
+  #   prefer-ip-address: true
+  #   instance-id: ${spring.application.name}:${server.port}
 
 resilience4j:
   circuitbreaker:
@@ -160,3 +160,5 @@ logging:
     io.github.resilience4j: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+ 
