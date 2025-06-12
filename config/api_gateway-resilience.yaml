@@ -28,10 +28,10 @@ spring:
                                 first-backoff: 200ms
                                 max-backoff: 1s
                                 factor: 2
-                      - name: RequestRateLimiter
-                        args:
-                            redis-rate-limiter.replenish-rate: 15
-                            redis-rate-limiter.burst-capacity: 30
+                      # - name: RequestRateLimiter
+                      #   args:
+                      #       redis-rate-limiter.replenish-rate: 15
+                      #       redis-rate-limiter.burst-capacity: 30
                       - name: Timeout
                         args:
                             timeout: 10s
@@ -58,11 +58,11 @@ spring:
                               max-backoff: 500ms
                               factor: 2
                       # Request Rate Limiter
-                      - name: RequestRateLimiter
-                        args:
-                            redis-rate-limiter.replenish-rate: 10
-                            redis-rate-limiter.burst-capacity: 20
-                            redis-rate-limiter.requested-tokens: 1
+                      # - name: RequestRateLimiter
+                      #   args:
+                      #       redis-rate-limiter.replenish-rate: 10
+                      #       redis-rate-limiter.burst-capacity: 20
+                      #       redis-rate-limiter.requested-tokens: 1
                       - name: Timeout
                         args:
                             timeout: 5s
