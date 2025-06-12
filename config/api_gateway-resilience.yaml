@@ -19,22 +19,22 @@ spring:
                         args:
                             name: product-service-cb
                             fallbackUri: forward:/fallback/products
-                      # - name: Retry
-                      #   args:
-                      #       retries: 2
-                      #       statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
-                      #       method: GET,POST,PUT
-                      #       backoff:
-                      #           first-backoff: 200ms
-                      #           max-backoff: 1s
-                      #           factor: 2
-                      # - name: RequestRateLimiter
-                      #   args:
-                      #       redis-rate-limiter.replenish-rate: 15
-                      #       redis-rate-limiter.burst-capacity: 30
-                      # - name: Timeout
-                      #   args:
-                      #       timeout: 10s
+                      - name: Retry
+                        args:
+                            retries: 2
+                            statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
+                            method: GET,POST,PUT
+                            backoff:
+                                first-backoff: 200ms
+                                max-backoff: 1s
+                                factor: 2
+                      - name: RequestRateLimiter
+                        args:
+                            redis-rate-limiter.replenish-rate: 15
+                            redis-rate-limiter.burst-capacity: 30
+                      - name: Timeout
+                        args:
+                            timeout: 10s
                       - StripPrefix= 0
                   - id: user-service
                     uri: lb://user-service
