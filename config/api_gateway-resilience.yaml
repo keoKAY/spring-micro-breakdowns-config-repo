@@ -19,22 +19,22 @@ spring:
                       #   args:
                       #       name: product-service-cb
                       #       fallbackUri: forward:/fallback/products
-                      - name: Retry
-                        args:
-                            retries: 2
-                            statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
-                            method: GET,POST,PUT
-                            backoff:
-                                first-backoff: 200ms
-                                max-backoff: 1s
-                                factor: 2
+                      # - name: Retry
+                      #   args:
+                      #       retries: 2
+                      #       statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
+                      #       method: GET,POST,PUT
+                      #       backoff:
+                      #           first-backoff: 200ms
+                      #           max-backoff: 1s
+                      #           factor: 2
                       # - name: RequestRateLimiter
                       #   args:
                       #       redis-rate-limiter.replenish-rate: 15
                       #       redis-rate-limiter.burst-capacity: 30
-                      - name: Timeout
-                        args:
-                            timeout: 10s
+                      # - name: Timeout
+                      #   args:
+                      #       timeout: 10s
                       - StripPrefix= 0
                   - id: user-service
                     uri: lb://user-service
@@ -48,24 +48,24 @@ spring:
                       #       name: user-service-cb
                       #       fallback-uri: forward:/fallback/users
                       # Retry filters
-                      - name: Retry
-                        args:
-                            retries: 3
-                            statuses: BAD_GATEWAY,GATEWAY_TIMEOUT,SERVICE_UNAVAILABLE
-                            methods: GET,POST,PUT,DELETE
-                            backoff:
-                              first-backoff: 100ms
-                              max-backoff: 500ms
-                              factor: 2
+                      # - name: Retry
+                      #   args:
+                      #       retries: 3
+                      #       statuses: BAD_GATEWAY,GATEWAY_TIMEOUT,SERVICE_UNAVAILABLE
+                      #       methods: GET,POST,PUT,DELETE
+                      #       backoff:
+                      #         first-backoff: 100ms
+                      #         max-backoff: 500ms
+                      #         factor: 2
                       # Request Rate Limiter
                       # - name: RequestRateLimiter
                       #   args:
                       #       redis-rate-limiter.replenish-rate: 10
                       #       redis-rate-limiter.burst-capacity: 20
                       #       redis-rate-limiter.requested-tokens: 1
-                      - name: Timeout
-                        args:
-                            timeout: 5s
+                      # - name: Timeout
+                      #   args:
+                      #       timeout: 5s
                       #- StripPrefix=2 # remove /api/users from path
                       #- StripPrefix=0
                       - RewritePath=/users/(?<segment>.*), /api/v1/users/$\{segment}
