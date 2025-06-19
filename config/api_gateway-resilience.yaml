@@ -19,19 +19,19 @@ spring:
                         args:
                             name: product-service-cb
                             fallbackUri: forward:/fallback/products
-                      - name: Retry
-                        args:
-                            retries: 2
-                            statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
-                            methods: GET,POST,PUT
-                            backoff:
-                                first-backoff: 200ms
-                                max-backoff: 1s
-                                factor: 2
-                      - name: RequestRateLimiter
-                        args:
-                            rate-limiter: "#{@inMemoryRateLimiter}" # use in-memory rate limiter
-                            key-resolver: "#{@userKeyResolver}" # use user key resolver
+                      # - name: Retry
+                      #   args:
+                      #       retries: 2
+                      #       statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
+                      #       methods: GET,POST,PUT
+                      #       backoff:
+                      #           first-backoff: 200ms
+                      #           max-backoff: 1s
+                      #           factor: 2
+                      # - name: RequestRateLimiter
+                      #   args:
+                      #       rate-limiter: "#{@inMemoryRateLimiter}" # use in-memory rate limiter
+                      #       key-resolver: "#{@userKeyResolver}" # use user key resolver
 
                             # you will need to configure redis in order for this to work 
                             # redis-rate-limiter.replenish-rate: 15
