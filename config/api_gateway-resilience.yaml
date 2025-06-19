@@ -1,7 +1,6 @@
 spring:
     cloud:
-        gateway:
-          
+        gateway:       
           server:
               webflux:
                 httpclient: 
@@ -36,9 +35,9 @@ spring:
                             # you will need to configure redis in order for this to work 
                             # redis-rate-limiter.replenish-rate: 15
                             # redis-rate-limiter.burst-capacity: 30
-                      - name: Timeout
-                        args:
-                            timeout: 10s
+                      # - name: Timeout
+                      #   args:
+                      #       timeout: 10s
                       - StripPrefix= 0
                   - id: user-service
                     uri: lb://user-service
