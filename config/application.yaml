@@ -1,8 +1,9 @@
-# this server as the base configuration for the other confiugrations 
-spring:
-  zipkin:
-    base-url: http://zipkin:9411
-    enabled: true
-  sleuth:
-    sampler:
+# this server as the base configuration for the other
+
+management:
+  tracing:
+    sampling:
       probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411/api/v2/spans
