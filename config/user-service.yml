@@ -1,6 +1,11 @@
 spring:
   application:
     name: user-service
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: my-group
+      auto-offset-reset: earliest
 server:
   port: 8181
 eureka:
