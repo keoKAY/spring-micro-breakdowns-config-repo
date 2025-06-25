@@ -145,10 +145,10 @@ resilience4j:
   timelimiter:
     instances:
       user-service:
-        timeout-duration: 5s # max wait time
+        timeout-duration: 30s # max wait time
         cancel-running-future: true # cancel the actual operations
       product-service:
-        timeout-duration: 10s
+        timeout-duration: 50s
         cancel-running-future: true
   bulkhead:
     instances:
