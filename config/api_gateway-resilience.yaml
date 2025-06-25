@@ -1,9 +1,9 @@
 spring:
     cloud:
         gateway:       
-          httpclient: 
-            connect-timeout: 5000 # 5 seconds
-            response-timeout: 10s 
+          # httpclient: 
+          #   connect-timeout: 5000 # 5 seconds
+          #   response-timeout: 10s 
           server:
               webflux:
                 routes:
