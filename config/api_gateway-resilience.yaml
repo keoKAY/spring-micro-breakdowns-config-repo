@@ -27,9 +27,9 @@ spring:
                                 first-backoff: 200ms
                                 max-backoff: 1s
                                 factor: 2
-                      - name: TimeLimiter 
-                        args: 
-                          name: product-service 
+                      # - name: TimeLimiter 
+                      #   args: 
+                      #     name: product-service 
 
                       # - name: RequestRateLimiter
                       #   args:
