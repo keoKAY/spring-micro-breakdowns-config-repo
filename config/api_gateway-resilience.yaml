@@ -147,7 +147,7 @@ resilience4j:
       user-service:
         timeout-duration: 30s # max wait time
         cancel-running-future: true # cancel the actual operations
-      product-service:
+      product-service-cb:
         timeout-duration: 50s
         cancel-running-future: true
   bulkhead:
