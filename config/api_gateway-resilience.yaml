@@ -18,18 +18,18 @@ spring:
                         args:
                             name: product-service-cb
                             fallbackUri: forward:/fallback/products
-                      - name: Retry
-                        args:
-                            retries: 2
-                            statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
-                            methods: GET,POST,PUT
-                            backoff:
-                                first-backoff: 200ms
-                                max-backoff: 1s
-                                factor: 2
-                      - name: TimeLimiter 
-                        args: 
-                          name: product-service 
+                      # - name: Retry
+                      #   args:
+                      #       retries: 2
+                      #       statuses: BAD_GATEWAY,GATEWAY_TIMEOUT
+                      #       methods: GET,POST,PUT
+                      #       backoff:
+                      #           first-backoff: 200ms
+                      #           max-backoff: 1s
+                      #           factor: 2
+                      # - name: TimeLimiter 
+                      #   args: 
+                      #     name: product-service 
 
                       # - name: RequestRateLimiter
                       #   args:
